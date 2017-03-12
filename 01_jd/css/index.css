@@ -1,0 +1,81 @@
+.container{
+    width: 100%;
+}
+
+/**
+    页头部分
+ */
+.header{
+    height: 40px;
+    width: 100%;
+    background-color: rgb(201, 21, 35);
+    display: flex;
+}
+
+.header_logo{
+    width: 60px;
+    height: 36px;
+    margin: 2px 0 0 5px;
+    background: url('../images/sprites.png') no-repeat 0 -103px;
+    background-size: 200px 200px;
+}
+.header_search{
+    flex: 1;
+    border-radius: 16px;
+    margin: 4px;
+    padding-left: 28px;
+    border: none;
+}
+.header_search_icon{
+    width: 20px;
+    height: 20px;
+    background: url('../images/sprites.png') no-repeat -60px -109px;
+    background-size: 200px 200px;
+    position: absolute;
+    top: 10px;
+    left: 75px;
+}
+.header_login{
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    color: white;
+    font-size: 17px;
+}
+
+/**
+    轮播图
+ */
+.banner{
+    width: 100%;
+    position: relative;
+}
+.banner_images{
+    width: 1000%;
+}
+.banner_images li{
+    float: left;
+    width: 10%;
+}
+.banner_images li img{
+    width: 100%;
+    display: block;
+}
+.banner_indexs{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -44px;
+}
+.banner_indexs li{
+    width: 6px;
+    height: 6px;
+    border: 1px solid white;
+    border-radius: 50%;
+    float: left;
+    margin-left: 5px;
+}
+.banner_indexs li.current{
+    background: white;
+}
