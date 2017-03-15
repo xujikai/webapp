@@ -1,0 +1,240 @@
+
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.fullPage{
+    height: 100%;
+}
+
+.section{
+    position: relative;
+    overflow: hidden;
+}
+
+/*
+    第一部分
+ */
+.first{
+    padding-top: 80px;
+    background: #0da5d6;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.first .logo{
+    width: 251px;
+    height: 186px;
+    margin: 0 auto;
+    background: url('../images/logo.png');
+}
+
+.first .text{
+    text-align: center;
+    margin: 85px 0 45px;
+    line-height: 1;
+}
+
+.first img{
+    margin: 0 24px;
+}
+
+.first .info{
+    height: 49px;
+    background: url('../images/info_1.png') center no-repeat;
+}
+
+/*
+    第二部分
+ */
+.second{
+    padding: 0 100px;
+    background: #2AB561;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.second>div:nth-child(1){
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.second .shield{
+    width: 428px;
+    height: 498px;
+}
+
+.second .info{
+    width: 635px;
+    height: 390px;
+    background: url("../images/info_2.png");
+}
+
+/*
+    第三部分
+ */
+.third{
+    padding: 0 100px;
+    background: #DE8910;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.third .info{
+    width: 631px;
+    height: 278px;
+    background: url("../images/info_3.png");
+}
+
+.third .rocket{
+    width: 203px;
+    height: 204px;
+    background: url("../images/rocket.png");
+    margin-top: 100px;
+}
+
+.third .circle{
+    width: 453px;
+    height: 449px;
+    background: url("../images/circle.png");
+}
+
+/*
+    第四部分
+ */
+.four{
+    padding: 0 100px;
+    height: 100%;
+    background: #16BA9D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.four .search{
+    width: 529px;
+    height: 320px;
+    position: relative;
+}
+
+.four .input{
+    width: 529px;
+    height: 66px;
+    background: url("../images/search.png");
+}
+
+.four .key{
+    width: 99px;
+    height: 22px;
+    background: url("../images/key.png");
+    position: absolute;
+    left: 20px;
+    top: 24px;
+}
+
+.four .result{
+    width: 529px;
+    height: 372px;
+    position: absolute;
+    top: 66px;
+    background: url("../images/result.png");
+}
+
+.four .info{
+    width: 612px;
+    height: 299px;
+    background: url("../images/info_4.png");
+}
+
+/*
+    第五部分
+ */
+.five{
+    height: 100%;
+    background: #0DA5D6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.five .info{
+    width: 1077px;
+    height: 134px;
+    margin: 30px 0;
+    background: url("../images/info_5.png");
+}
+
+.five .browser{
+    width: 1004px;
+    flex: 1;
+    background: rgba(255,255,255,0.15);
+    position: relative;
+}
+
+.leftLine,.topLine,.rightLine,.bottomLine{
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+}
+
+.leftLine{
+    left: 0;
+    height: 100%;
+    border-left: 1px solid rgba(255,255,255,0.5);
+}
+
+.topLine{
+    top: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.rightLine{
+    right: 0;
+    height: 100%;
+    border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+.bottomLine{
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.browser .toolbar{
+    width: 100%;
+    height: 79px;
+    background: url("../images/toolbar.png");
+}
+
+.browser .box{
+    height: 24px;
+    width: 915px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 3px;
+    position: absolute;
+    left: 75px;
+    top: 32px;
+}
+
+.browser .line{
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.5);
+    position: absolute;
+    bottom: 30px;
+}
+
+.browser .extra{
+    width: 394px;
+    height: 29px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url("../images/extra.png");
+}
+
