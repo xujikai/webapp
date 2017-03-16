@@ -1,0 +1,50 @@
+
+.content{
+    display: flex;
+}
+/*
+    左侧分类列表
+ */
+.content_left{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.content_left>div{
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    color: rgba(0,0,0,0.9);
+    border: 1px solid #e0e0e0;
+    border-collapse: collapse;
+}
+.content_left>div:hover{
+    background: rgb(201, 21, 35);
+    color: white;
+}
+
+.content_right{
+    width: 80%;
+}
+.content_banner>img{
+    width: 100%;
+}
+.content_detail{
+    display: flex;
+    flex-wrap: wrap;
+}
+.content_detail>div{
+    width: 33.33%;
+    text-align: center;
+    padding: 10px 0;
+}
+.content_detail>div:nth-child(3n+2){
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.content_detail>div:nth-child(n+1){
+    border-bottom: 1px solid #e0e0e0;
+}
+.content_detail>div>img{
+    width: 80%;
+}
