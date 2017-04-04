@@ -2,15 +2,15 @@
  * Created by xxx on 2017/4/1.
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from './reducers/TodoReducer';
-import App from './components/App';
+import reducer from './reducers/TodoRedu';
+import App from './components/AppComp';
 
 const store = createStore(reducer);
 
-ReactDOM.render(
+render(
     <Provider store={store}>
         <App/>
     </Provider>,

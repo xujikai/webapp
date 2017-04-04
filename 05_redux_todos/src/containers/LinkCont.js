@@ -2,8 +2,8 @@
  * Created by xxx on 2017/4/1.
  */
 import {connect} from 'react-redux';
-import Link from '../components/Link';
-import {setVisibleFilter} from '../actions/TodoAction';
+import LinkComp from '../components/LinkComp';
+import {setVisibleFilter} from '../actions/TodoAct';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -13,12 +13,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onClick:() => {
+        onClick() {
             dispatch(setVisibleFilter(ownProps.filter));
         }
     }
 };
 
-const FilterLink = connect(mapStateToProps,mapDispatchToProps)(Link);
+const LinkCont = connect(mapStateToProps,mapDispatchToProps)(LinkComp);
 
-export default FilterLink;
+export default LinkCont;

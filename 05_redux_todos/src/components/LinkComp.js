@@ -3,7 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 
-class Link extends Component{
+class LinkComp extends Component{
     static propTypes = {
         active: PropTypes.bool.isRequired,
         children: PropTypes.node.isRequired,
@@ -15,9 +15,13 @@ class Link extends Component{
         if(active) return <span>{children}</span>;
 
         return (
-            <a href="#" onClick={onClick}>{children}</a>
+            <a href="#"
+               onClick={e => {
+                e.preventDefault();
+                onClick();
+            }}>{children}</a>
         );
     }
 }
 
-export default Link;
+export default LinkComp;
