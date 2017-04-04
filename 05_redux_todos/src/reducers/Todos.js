@@ -1,6 +1,9 @@
 /**
  * Created by xxx on 2017/4/1.
  */
+
+import undoable from 'redux-undo';
+
 const todo = (state, action) => {
     switch (action.type){
         case 'ADD_TODO':
@@ -37,4 +40,6 @@ const todos = (state = [], action) => {
     }
 };
 
-export default todos;
+const undoableTodos = undoable(todos);
+
+export default undoableTodos;

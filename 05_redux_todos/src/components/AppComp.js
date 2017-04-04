@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import AddCont from '../containers/AddCont';
 import ListCont from '../containers/ListCont';
 import FooterComp from './FooterComp';
+import UndoCont from '../containers/UndoCont';
 
 class App extends Component{
 
@@ -14,6 +15,7 @@ class App extends Component{
                 <AddCont/>
                 <ListCont/>
                 <FooterComp/>
+                <UndoCont/>
             </div>
         );
     }
