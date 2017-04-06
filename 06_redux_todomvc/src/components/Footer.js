@@ -1,10 +1,25 @@
 /**
  * Created by xxx on 2017/4/5.
  */
-import React,{Component} from 'react';
+import React,{Component,PropTypes} from 'react';
 import classnames from 'classnames';
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters';
+
+const FILTER_TITLES = {
+    [SHOW_ALL]: 'All',
+    [SHOW_ACTIVE]: 'Active',
+    [SHOW_COMPLETED]: 'Completed'
+};
 
 export default class Footer extends Component{
+
+    static propTypes = {
+        completedCount: PropTypes.number.isRequired,
+        activeCount: PropTypes.number.isRequired,
+        filter: PropTypes.string.isRequired,
+        onClearCompleted: PropTypes.func.isRequired,
+        onShow: PropTypes.func.isRequired
+    };
 
     render(){
         return(
@@ -12,7 +27,7 @@ export default class Footer extends Component{
                 {this.renderTodoCount()}
                 <ul className="filters">
                     {
-                        ['All','Active','Completed'].map(filter => {
+                        [SHOW_ALL,SHOW_ACTIVE,SHOW_COMPLETED].map(filter => {
                             return (
                                 <li key={filter}>
                                     {this.renderFilterLink(filter)}
@@ -28,26 +43,39 @@ export default class Footer extends Component{
 
     renderTodoCount() {
         const { activeCount } = this.props;
+        const itemWord = activeCount === 1 ? 'item' : 'items';
 
         return (
             <span className="todo-count">
-                <strong>{activeCount || 'NO'}</strong> item left
+                <strong>{activeCount || 'NO'}</strong> {itemWord} left
             </span>
         );
     }
 
     renderFilterLink(filter) {
+        const title = FILTER_TITLES[filter];
+        const {filter:selectedFilter,onShow} = this.props;
+
         return (
-            <a className={classnames()} style={{cursor:'pointer'}}>{filter}</a>
+            <a  className={classnames({selected: filter === selectedFilter})}
+                style={{cursor:'pointer'}}
+                onClick={() => onShow(filter)}>
+                {title}
+            </a>
         );
     }
 
     renderClearButton() {
-        return (
-            <button className="clear-completed">
-                Clear Completed
-            </button>
-        );
+        const {completedCount,onClearCompleted} = this.props;
+
+        if(completedCount > 0){
+            return (
+                <button className="clear-completed"
+                    onClick={onClearCompleted}>
+                    Clear Completed
+                </button>
+            );
+        }
     }
 
 }

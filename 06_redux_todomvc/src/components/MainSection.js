@@ -35,14 +35,39 @@ export default class MainSection extends Component{
         return(
             <section className="main">
                 <ul className="todo-list">
-                    <TodoItem/>
-                    <TodoItem/>
-                    <TodoItem/>
-                    <TodoItem/>
+                    {
+                        filteredTodos.map(todo =>
+                            <TodoItem key={todo.id} todo={todo} {...actions}/>
+                        )
+                    }
                 </ul>
-                <Footer/>
+                {this.renderFooter(completedCount)}
             </section>
         );
     }
+
+    renderFooter = (completedCount) => {
+        const {todos} = this.props;
+        const {filter} = this.state;
+        const activeCount = todos.length - completedCount;
+
+        if(todos.length){
+            return <Footer completedCount={completedCount}
+                           activeCount={activeCount}
+                           filter={filter}
+                           onClearCompleted={this.handleClearCompleted}
+                           onShow={this.handleShow}/>;
+        }
+    };
+
+    handleClearCompleted = () => {
+        this.props.actions.clearCompleted();
+    };
+
+    handleShow = (filter) => {
+        this.setState({
+            filter: filter
+        });
+    };
 
 }

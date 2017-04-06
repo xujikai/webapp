@@ -1,4 +1,21 @@
-##Array.from()
+## 数组实例的map
+遍历数组的每一个元素，并对每一个元素进行相同的函数处理，然后返回一个新的数组。
+
+## 数组实例的reduce
+将数组中的所有元素，进行函数累积操作，最后得出一个结果值。该函数必须接收两个参数。
+
+    const array = [1,2,3,4,5];
+    array.reduce(function (previous,current){
+        return previous + current;
+    });
+
+下面代码是对数组中的元素是对象的情况求和
+
+    const completedCount = todoArr.reduce((count,todo) => {
+        return todo.completed ? count + 1 : count
+    },0);
+
+## Array.from()
 Array.from方法用于将两类对象转为真正的数组：<br/>
 
 1. 类似数组的对象（array-like object）

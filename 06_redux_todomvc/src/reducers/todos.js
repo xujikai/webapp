@@ -30,5 +30,7 @@ export default function todos(state = initialState,action) {
             return state.map(todo => ({...todo,completed:true}));
         case CLEAR_COMPLETED:
             return state.filter(todo => todo.completed === false);
+        default:
+            return state;
     }
 }

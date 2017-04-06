@@ -6,6 +6,10 @@ import TodoTextInput from './TodoTextInput';
 
 export default class Header extends Component{
 
+    static propTypes = {
+        addTodo:PropTypes.func.isRequired
+    };
+
     render(){
         return(
             <header className="header">
@@ -20,6 +24,9 @@ export default class Header extends Component{
 
     handleSave(text){
         console.log(`handleSave ${text}`);
+        if(text.length !== 0){
+            this.props.addTodo(text);
+        }
     }
 
 }

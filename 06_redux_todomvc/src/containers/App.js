@@ -10,6 +10,8 @@ import MainSection from '../components/MainSection';
 
 const App = ({todos,actions}) => (
     <div>
+        {console.log(todos)}
+        {console.log(actions)}
         <Header addTodo={actions.addTodo}/>
         <MainSection todos={todos} actions={actions}/>
     </div>

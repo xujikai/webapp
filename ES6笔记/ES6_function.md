@@ -1,3 +1,50 @@
+## 箭头函数
+
+格式1：只包含一个表达式，连{...}和return都省略掉了。
+
+    const fn = x => x * x;
+
+格式2：包含多条语句，这时候{...}和return不能省略。
+
+    x => {
+        if (x > 0) {
+            return x * x;
+        } else {
+            return - x * x;
+        }
+    }
+
+注意：如果要返回对象，因为和函数体有冲突，所以要在外面加一层();
+
+    x => ({ foo: x })
+
+#### > this
+箭头函数看上去是匿名函数的一种简写，但实际上，<br/>
+箭头函数和匿名函数有个明显的区别：箭头函数内部的this是词法作用域，由上下文确定。
+
+    var obj = {
+        birth: 1990,
+        getAge: function () {
+            var b = this.birth; // 1990
+            var fn = function () {
+                return new Date().getFullYear() - this.birth; // this指向window或undefined
+            };
+            return fn();
+        }
+    };
+
+    var obj = {
+        birth: 1990,
+        getAge: function () {
+            var b = this.birth; // 1990
+            var fn = () => new Date().getFullYear() - this.birth; // this指向obj对象
+            return fn();
+        }
+    };
+
+由于this在箭头函数中已经按照词法作用域绑定了，<br/>
+所以，用call()或者apply()调用箭头函数时，无法对this进行绑定，即传入的第一个参数被忽略。
+
 ## 函数参数的默认值
 
 	function log(x, y = 'World') {
