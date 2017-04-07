@@ -160,6 +160,10 @@ Reducer函数负责生成State。由于整个应用只有一个State对象，包
 > 操作开始时，发出一个Action，触发 State 更新为"正在操作"状态。<br/>
 > 操作结束后，发出一个Action，触发 State 更新为"操作结束"状态。
 
+#### > 异步操作解决方案
+redux-thunk：写出一个返回函数的ActionCreator。<br/>
+redux-promise：写出一个返回Promise对象的ActionCreator。
+
 ## React-Redux
 Redux作者专门为React封装的一个库
 

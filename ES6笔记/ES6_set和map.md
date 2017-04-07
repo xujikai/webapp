@@ -1,6 +1,4 @@
-#Set和Map
-
-##Set
+## Set
 它类似于数组，但是成员的值都是唯一的，没有重复的值。
 以下为使用方法：
 	
@@ -24,7 +22,7 @@
 	divs().forEach(div => set.add(div));
 	set.size // 56
 
-###> Set实例的属性和方法
+#### > Set实例的属性和方法
 Set结构的实例有以下属性。
 
 - Set.prototype.constructor：构造函数，默认就是Set函数。
@@ -37,7 +35,7 @@ Set实例的方法分为两大类：操作方法（用于操作数据）和遍�
 - has(value)：返回一个布尔值，表示该值是否为Set的成员。
 - clear()：清除所有成员，没有返回值。
 
-###> Set遍历操作
+#### > Set遍历操作
 Set结构的实例有四个遍历方法，可以用于遍历成员。
 
 - keys()：返回键名的遍历器
@@ -52,15 +50,15 @@ Set结构的实例有四个遍历方法，可以用于遍历成员。
 	
 		set.forEach((value) => console.log(value * 2));
 
-###> Set遍历应用
+#### > Set遍历应用
 
-####>> 去除数组重复数据
+##### >> 去除数组重复数据
 
 	[...new Set(array)]
 	//Array.from方法可以将Set结构转为数组。
 	Array.from(new Set(array))
 
-####>> Set的并集，交集，差集
+##### >> Set的并集，交集，差集
 
 	let a = new Set([1, 2, 3]);
 	let b = new Set([4, 3, 2]);
@@ -77,7 +75,7 @@ Set结构的实例有四个遍历方法，可以用于遍历成员。
 	let difference = new Set([...a].filter(x => !b.has(x)));
 	// Set {1}
 	
-####>> 在遍历操作中，同步改变原来的Set结构
+##### >> 在遍历操作中，同步改变原来的Set结构
 
 	// 方法一
 	let set = new Set([1, 2, 3]);
@@ -89,10 +87,10 @@ Set结构的实例有四个遍历方法，可以用于遍历成员。
 	set = new Set(Array.from(set, val => val * 2));
 	// set的值是2, 4, 6
 
-##Map
+## Map
 类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
 
-###> 注意
+#### > 注意
 只有对同一个对象的引用，Map结构才将其视为同一个键。这一点要非常小心。
 
 	var map = new Map();
@@ -100,7 +98,7 @@ Set结构的实例有四个遍历方法，可以用于遍历成员。
 	map.set(['a'], 555);
 	map.get(['a']) // undefined
 
-###> Map实例的属性和方法
+#### > Map实例的属性和方法
 - size属性返回Map结构的成员总数。
 - set()设置key所对应的键值，然后返回整个Map结构。
 - get()读取key对应的键值，如果找不到key，返回undefined。
@@ -108,7 +106,7 @@ Set结构的实例有四个遍历方法，可以用于遍历成员。
 - delete()删除某个键，返回true。如果删除失败，返回false。
 - clear()清除所有成员，没有返回值。
 
-###> Map遍历操作
+#### > Map遍历操作
 Map结构的实例有四个遍历方法，可以用于遍历成员。
 
 - keys()：返回键名的遍历器
@@ -116,37 +114,39 @@ Map结构的实例有四个遍历方法，可以用于遍历成员。
 - entries()：返回键值对的遍历器
 - forEach()：使用回调函数遍历每个成员
 
-		let map = new Map([
-		  ['F', 'no'],
-		  ['T',  'yes'],
-		]);
-		
-		for (let key of map.keys()) {
-		  console.log(key);
-		}
-		
-		for (let value of map.values()) {
-		  console.log(value);
-		}
-		
-		for (let item of map.entries()) {
-		  console.log(item[0], item[1]);
-		}
-		
-		// 或者
-		for (let [key, value] of map.entries()) {
-		  console.log(key, value);
-		}
+代码示例：
 
-###> 与其他数据结构的相互转换
-####>> Map转数组
+    let map = new Map([
+      ['F', 'no'],
+      ['T',  'yes'],
+    ]);
+
+    for (let key of map.keys()) {
+      console.log(key);
+    }
+
+    for (let value of map.values()) {
+      console.log(value);
+    }
+
+    for (let item of map.entries()) {
+      console.log(item[0], item[1]);
+    }
+
+    // 或者
+    for (let [key, value] of map.entries()) {
+      console.log(key, value);
+    }
+
+#### > 与其他数据结构的相互转换
+##### >> Map转数组
 	let myMap = new Map().set(true, 7).set({foo: 3}, ['abc']);
 	[...myMap]
 	// [ [ true, 7 ], [ { foo: 3 }, [ 'abc' ] ] ]
-####>> 数组转Map
+##### >> 数组转Map
 	new Map([[true, 7], [{foo: 3}, ['abc']]])
 	// Map {true => 7, Object {foo: 3} => ['abc']}
-####>> Map转为对象
+##### >> Map转为对象
 如果所有Map的键都是字符串，它可以转为对象。
 
 	function strMapToObj(strMap) {
@@ -160,7 +160,7 @@ Map结构的实例有四个遍历方法，可以用于遍历成员。
 	let myMap = new Map().set('yes', true).set('no', false);
 	strMapToObj(myMap)
 	// { yes: true, no: false }
-####>> 对象转为Map
+##### >> 对象转为Map
 	function objToStrMap(obj) {
 	  let strMap = new Map();
 	  for (let k of Object.keys(obj)) {
@@ -171,7 +171,7 @@ Map结构的实例有四个遍历方法，可以用于遍历成员。
 	
 	objToStrMap({yes: true, no: false})
 	// [ [ 'yes', true ], [ 'no', false ] ]
-####>> Map转为JSON
+##### >> Map转为JSON
 Map转为JSON要区分两种情况。一种情况是，Map的键名都是字符串，这时可以选择转为对象JSON。
 
 	function strMapToJson(strMap) {
@@ -192,7 +192,7 @@ Map转为JSON要区分两种情况。一种情况是，Map的键名都是字符�
 	mapToArrayJson(myMap)
 	// '[[true,7],[{"foo":3},["abc"]]]'
 
-####>> JSON转为Map
+##### >> JSON转为Map
 JSON转为Map，正常情况下，所有键名都是字符串。
 
 	function jsonToStrMap(jsonStr) {
