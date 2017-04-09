@@ -13,7 +13,7 @@
        可以定义一个函数来生成Action，这个函数就叫Action Creator。<br/>
 5. store.dispatch()：是View发出Action的唯一办法。
 6. Reducer：Store收到Action后，必须给出一个新State，这样View才会发生变化。
-       这种State的计算过程就叫做Reducer。<br/>
+       这种State的计算过程就叫做Reducer。如果数据发生变化，计算出的状态必须为一个创建出来的新状态，否则不会刷新页面。<br/>
 7. store.subscribe()：Store允许通过该方法设置监听函数，一旦State发生变化，就自动执行这个函数。
 
 ## Store的实现
