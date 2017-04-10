@@ -1,4 +1,4 @@
-##HTML 模板
+## HTML 模板
 	<!DOCTYPE html>
 	<html>
 	  <head>
@@ -23,7 +23,7 @@
 	其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能，
 	Browser.js 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。
 
-##ReactDOM.render()
+## ReactDOM.render()
 ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
 
 	ReactDOM.render(
@@ -31,7 +31,7 @@ ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言
 	  document.getElementById('example')
 	);
 
-##JSX 语法
+## JSX 语法
 	遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。
 	JSX 允许直接在模板插入 JavaScript 变量。如果这个变量是一个数组，则会展开这个数组的所有成员
 
@@ -44,7 +44,7 @@ ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言
 	  document.getElementById('example')
 	);
 
-##组件
+## 组件
 1. 组件类的第一个字母必须大写，否则会报错。
 2. 组件的属性可以在组件类的 this.props 对象上获取，比如 name 属性就可以通过 this.props.name 读取。
 3. 添加组件属性，有一个地方需要注意，就是 class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。
@@ -61,7 +61,7 @@ ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言
 		  document.getElementById('example')
 		);
 
-###> 注意
+### > 注意
 	this.props.children 的值有三种可能：
 		如果当前组件没有子节点，它就是 undefined ;
 		如果有一个子节点，数据类型是 object ；
@@ -95,7 +95,7 @@ ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言
 	  document.body
 	);
 
-##PropTypes
+## PropTypes
 组件的属性可以接受任意值，字符串、对象、函数等等都可以。有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。
 PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。
 
@@ -123,7 +123,7 @@ getDefaultProps 方法可以用来设置组件属性的默认值。
 	   }
 	});
 
-##获取真实的DOM节点
+## 获取真实的DOM节点
 文本输入框必须有一个 ref 属性，然后 this.refs.[refName] 就会返回这个真实的 DOM 节点。
 需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。
 
@@ -141,7 +141,7 @@ getDefaultProps 方法可以用来设置组件属性的默认值。
 	  }
 	});
 
-##this.state
+## this.state
 React 的一大创新，就是将组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI。
 getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。
 当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。
@@ -163,7 +163,7 @@ getInitialState 方法用于定义初始状态，也就是一个对象，这个�
 	  }
 	});
 
-##组件的生命周期
+## 组件的生命周期
 组件的生命周期分成三个状态：
 
 	* Mounting：已插入真实 DOM
@@ -178,7 +178,7 @@ React 为每个状态都提供了两种处理函数，will 函数在进入状态
 	componentDidUpdate(object prevProps, object prevState)
 	componentWillUnmount()
 
-##综合示例
+## 综合示例
 
 	var RepoList = React.createClass({
 	  getInitialState() {
