@@ -11,8 +11,8 @@
 
 下面代码是对数组中的元素是对象的情况求和
 
-    const completedCount = todoArr.reduce((count,todo) => {
-        return todo.completed ? count + 1 : count
+    const completedCount = todoArr.reduce((count,item) => {
+        return item.completed ? count + 1 : count
     },0);
 
 ## Array.from()
@@ -60,7 +60,7 @@ Array.from还可以接受第二个参数，作用类似于数组的map方法，�
 
 如果map函数里面用到了this关键字，还可以传入Array.from的第三个参数，用来绑定this。
 
-##Array.of()
+## Array.of()
 Array.of方法用于将一组值，转换为数组。<br/>
 Array.of基本上可以用来替代Array()或new Array()，并且不存在由于参数不同而导致的重载。它的行为非常统一。
 
@@ -77,7 +77,7 @@ Array.of基本上可以用来替代Array()或new Array()，并且不存在由于
 上面代码中，Array方法没有参数、一个参数、三个参数时，返回结果都不一样。<br/>
 只有当参数个数不少于2个时，Array()才会返回由参数组成的新数组。参数个数只有一个时，实际上是指定数组的长度。
 
-##数组实例的find()和findIndex()
+## 数组实例的find()和findIndex()
 数组实例的find方法，用于找出第一个符合条件的数组成员。<br/>
 它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。<br/>
 如果没有符合条件的成员，则返回undefined。
@@ -94,7 +94,7 @@ Array.of基本上可以用来替代Array()或new Array()，并且不存在由于
 
 这两个方法都可以接受第二个参数，用来绑定回调函数的this对象。
 
-###> 注意，这两个方法都可以发现NaN，弥补了数组的IndexOf方法的不足。
+##### > 注意，这两个方法都可以发现NaN，弥补了数组的IndexOf方法的不足。
 
 	[NaN].indexOf(NaN)
 	// -1
@@ -102,7 +102,7 @@ Array.of基本上可以用来替代Array()或new Array()，并且不存在由于
 	[NaN].findIndex(y => Object.is(NaN, y))
 	// 0
 
-##数组实例的fill()
+## 数组实例的fill()
 fill方法使用给定值，填充一个数组。
 
 	['a', 'b', 'c'].fill(7)
@@ -113,7 +113,7 @@ fill方法使用给定值，填充一个数组。
 
 fill方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。
 
-##数组实例的entries()，keys()和values()
+## 数组实例的entries()，keys()和values()
 keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历<br/>
 它们都返回一个遍历器对象，可以用for...of循环进行遍历
 
@@ -135,7 +135,7 @@ keys()是对键名的遍历、values()是对键值的遍历，entries()是对键
 	// 0 "a"
 	// 1 "b"
 
-##数组实例的includes()
+## 数组实例的includes()
 includes()表示某个数组是否包含给定的值，与字符串的includes()相似。
 
 	[1, 2, 3].includes(2);     // true
