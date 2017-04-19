@@ -1,0 +1,37 @@
+.item_container{
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+
+.item_name{
+  width: 6rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+}
+
+.item_number_container{
+  display: flex;
+  align-items: center;
+
+  .item_reduce{
+    width: 1.15rem;
+    height: 1.15rem;
+    background: url(../images/icon_reduce.png) no-repeat;
+    background-size: 1.15rem 1.15rem;
+  }
+
+  .item_number{
+    width: 2rem;
+    height: 1.15rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .item_add{
+    width: 1.15rem;
+    height: 1.15rem;
+    background: url(../images/icon_add.png) no-repeat;
+    background-size: 1.15rem 1.15rem;
+  }
+}

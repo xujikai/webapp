@@ -1,0 +1,44 @@
+$color_purple:#9853c9;
+$color_white:#FFF;
+
+.item_container{
+  background: $color_white;
+  margin-bottom: 0.5rem;
+  padding:0 0.5rem;
+
+  header{
+    height: 1.95rem;
+    line-height: 1.95rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #959595;
+    border-bottom: 1px solid #EBEBEB;
+    white-space: pre;
+  }
+
+}
+
+/*
+  订单状态
+ */
+.item_status{
+  margin: 0 0.5rem;
+  font-size: 0.75rem;
+  color: #f20505;
+}
+
+.item_row{
+  padding: 0.25rem 0;
+  font-size: 0.65rem;
+  color: #333;
+}
+
+.item_money{
+  display: flex;
+  justify-content: space-between;
+}
+
+.item_color_red{
+  color: red;
+}

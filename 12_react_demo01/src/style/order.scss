@@ -1,0 +1,34 @@
+$color_purple:#9853c9;
+$color_white:#FFF;
+
+.order_container{
+  padding-top: 2.2rem;
+}
+
+.order_tab_container{
+  width: 100%;
+  height: 2.2rem;
+  display: flex;
+  align-items: stretch;
+  background: $color_white;
+
+  .order_tab_item{
+    flex: 1 1 auto;
+    font-size: 0.8rem;
+    line-height: 2.2rem;
+    color: #494949;
+    text-align: center;
+  }
+
+  .order_tab_choose{
+    color: $color_purple;
+    border-bottom: 0.1rem solid $color_purple;
+  }
+
+  span{
+    width: 0.05rem;
+    height: 1.6rem;
+    margin: 0.3rem 0;
+    background: #CCC;
+  }
+}

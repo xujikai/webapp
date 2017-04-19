@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
+import Header from "./Header";
 import '../style/base.scss'
 import '../style/main.scss';
-import Header from "../component/Header";
 
 export default class MainPage extends Component{
 
