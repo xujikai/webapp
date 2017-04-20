@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header';
 import OrderItem from './OrderItem';
+import {ORDER_FAILED,ORDER_WAITED,ORDER_PASSED} from '../constants/Config';
 import '../style/order.scss';
 
 export default class OrderPage extends Component {
@@ -10,25 +11,26 @@ export default class OrderPage extends Component {
         super(props);
         // 初始状态
         this.state = {
-            chooseName:'failed'
+            chooseName: ORDER_FAILED
         };
     }
 
     render() {
         const {chooseName} = this.state;
+        const {ordersAll} = this.props;
 
         return (
             <div className="component_container order_container">
                 <Header title="订单记录"/>
                 <div className="order_tab_container">
-                    <div className={`order_tab_item ${chooseName === 'failed' ? 'order_tab_choose' : ''}`}
-                         name="failed" onClick={this.chooseTabItem}>未通过</div>
+                    <div className={`order_tab_item ${chooseName === ORDER_FAILED ? 'order_tab_choose' : ''}`}
+                         onClick={() => {this.chooseTabItem(ORDER_FAILED)}}>未通过</div>
                     <span/>
-                    <div className={`order_tab_item ${chooseName === 'waited' ? 'order_tab_choose' : ''}`}
-                         name="waited" onClick={this.chooseTabItem}>待审核</div>
+                    <div className={`order_tab_item ${chooseName === ORDER_WAITED ? 'order_tab_choose' : ''}`}
+                         onClick={() => {this.chooseTabItem(ORDER_WAITED)}}>待审核</div>
                     <span/>
-                    <div className={`order_tab_item ${chooseName === 'passed' ? 'order_tab_choose' : ''}`}
-                         name="passed" onClick={this.chooseTabItem}>已通过</div>
+                    <div className={`order_tab_item ${chooseName === ORDER_PASSED ? 'order_tab_choose' : ''}`}
+                         onClick={() => {this.chooseTabItem(ORDER_PASSED)}}>已通过</div>
                 </div>
                 <ul>
                     <OrderItem/>
@@ -39,14 +41,20 @@ export default class OrderPage extends Component {
         );
     }
 
-    chooseTabItem = (e) => {
-        e.preventDefault();
-        // console.log(e.target);
-        // console.log(e.target.getAttribute('name'));
-        const name = e.target.getAttribute('name');
+    chooseTabItem(name) {
         this.setState({
-            chooseName: name,
+            chooseName: name
         });
     }
+
+    // chooseTabItem = (e) => {
+    //     e.preventDefault();
+    //     // console.log(e.target);
+    //     // console.log(e.target.getAttribute('name'));
+    //     const name = e.target.getAttribute('name');
+    //     this.setState({
+    //         chooseName: name,
+    //     });
+    // }
 
 }

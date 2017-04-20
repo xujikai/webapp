@@ -1,37 +1,50 @@
-.item_container{
+$color_purple:#9853c9;
+$color_white:#FFF;
+
+.item_product_container{
   display: flex;
   justify-content: space-around;
+  margin-bottom: 0.5rem;
   padding: 0.5rem 0;
-}
+  background-color: $color_white;
 
-.item_name{
-  width: 6rem;
-  height: 2.2rem;
-  line-height: 2.2rem;
-}
-
-.item_number_container{
-  display: flex;
-  align-items: center;
-
-  .item_reduce{
-    width: 1.15rem;
-    height: 1.15rem;
-    background: url(../images/icon_reduce.png) no-repeat;
-    background-size: 1.15rem 1.15rem;
+  .item_name{
+    width: 7.5rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    padding-left: 1.75rem;
+    background: url(../images/icon_check_no.png) no-repeat left center;
+    background-size: 1.05rem 1.05rem;
   }
 
-  .item_number{
-    width: 2rem;
-    height: 1.15rem;
-    font-size: 0.8rem;
-    text-align: center;
+  .item_name_check{
+    background: url(../images/icon_check.png) no-repeat left center;
+    background-size: 1.05rem 1.05rem;
   }
 
-  .item_add{
-    width: 1.15rem;
-    height: 1.15rem;
-    background: url(../images/icon_add.png) no-repeat;
-    background-size: 1.15rem 1.15rem;
+  .item_number_container{
+    display: flex;
+    align-items: center;
+
+    .item_reduce{
+      width: 1.15rem;
+      height: 1.15rem;
+      background: url(../images/icon_reduce.png) no-repeat;
+      background-size: 1.15rem 1.15rem;
+    }
+
+    .item_number{
+      width: 2rem;
+      height: 1.15rem;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .item_add{
+      width: 1.15rem;
+      height: 1.15rem;
+      background: url(../images/icon_add.png) no-repeat;
+      background-size: 1.15rem 1.15rem;
+    }
   }
 }

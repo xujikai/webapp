@@ -5,7 +5,7 @@ export default class OrderItem extends Component{
 
     render(){
         return(
-            <li className="item_container">
+            <li className="item_order_container">
                 <header>
                     <span>创建时间：2017.01.10 20:43</span>
                     <span className="item_status">待审核</span>
