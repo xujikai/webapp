@@ -27,18 +27,17 @@ const hotVideos = (state = initPosts,action) => {
   }
 };
 
-const orders = (state,action) => {
-  switch (action.type){
-      case types.REQUEST_POSTS:
-          return state;
-      default:
-          return state;
-  }
-};
+// const orders = (state,action) => {
+//   switch (action.type){
+//       case types.REQUEST_POSTS:
+//           return state;
+//       default:
+//           return state;
+//   }
+// };
 
 const reducer = combineReducers({
-    hotVideos,
-    orders
+    hotVideos
 });
 
 export default reducer;

@@ -70,6 +70,7 @@ export const fetchPosts = (path,postData) => {
     }
 };
 
+// http://dev.fe.ptdev.cn/shopro/data/record.json?type=FAILED&page=3
 export const getOrderByType = (postData) => (dispatch) => {
     dispatch(requestPosts());
 };

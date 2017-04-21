@@ -17,7 +17,7 @@ export default class OrderPage extends Component {
 
     render() {
         const {chooseName} = this.state;
-        const {ordersAll} = this.props;
+        // const {ordersAll} = this.props;
 
         return (
             <div className="component_container order_container">
