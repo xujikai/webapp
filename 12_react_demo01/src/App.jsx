@@ -31,6 +31,7 @@ render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={RootPage}>
+                <IndexRoute component={LoginPage}/>
                 <Route path="/main" component={MainContainer}/>
                 <Route path="/order" component={OrderPage}/>
                 <Route path="/product" component={ProductPage}/>
