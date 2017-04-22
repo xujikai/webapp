@@ -17,6 +17,7 @@ import ProductPage from './component/ProductPage';
 import LoginPage from './component/LoginPage';
 import HotVideoPage from './component/HotVideoPage';
 import HotVideoDetail from './component/HotVideoDetail';
+import TestTextPage from './component/TestTextPage';
 
 // 代码执行区
 
@@ -36,6 +37,7 @@ render(
                 <Route path="/login" component={LoginPage}/>
                 <Route path="/hotVideo" component={HotVideoPage}/>
                 <Route path="/detail" component={HotVideoDetail}/>
+                <Route path="/test" component={TestTextPage}/>
             </Route>
         </Router>
     </Provider>,
