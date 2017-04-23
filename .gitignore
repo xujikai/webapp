@@ -1,3 +1,6 @@
-*/node_modules
-.gitignore
+
 .idea/workspace.xml
+
+*/node_modules
+
+.gitignore

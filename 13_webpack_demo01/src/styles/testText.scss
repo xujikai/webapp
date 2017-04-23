@@ -1,0 +1,17 @@
+$color: green;
+$padding: 20px;
+
+@import "test.scss";
+
+body{
+    background: $color;
+    padding: $padding;
+}
+
+//body{
+//    background: green;
+//}
+
+.flex-div{
+    display: flex;
+}
