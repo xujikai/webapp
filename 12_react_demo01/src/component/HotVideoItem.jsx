@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {browserHistory} from 'react-router';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 export default class HotVideoItem extends Component{
@@ -7,7 +8,7 @@ export default class HotVideoItem extends Component{
         const {item} = this.props;
 
         return(
-            <Card>
+            <Card onClick={() => { browserHistory.push('/detail'); }}>
                 <CardMedia
                     overlayContentStyle={{
                         paddingTop:0
@@ -26,7 +27,7 @@ export default class HotVideoItem extends Component{
                         />
                     }
                     >
-                    <img src={item.imageUrl}/>
+                    <img src={item.imageUrl} style={{width:'100%',height:'100%'}}/>
                 </CardMedia>
             </Card>
         );

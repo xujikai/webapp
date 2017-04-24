@@ -19,15 +19,13 @@ export default class LoginPage extends Component {
                 <div className="logo"/>
 
                 <TextField
-                    hintText="3-6为字母、数字、汉字"
-                    floatingLabelText="请输入用户名"
+                    hintText="请输入用户名"
                     style={{
                         width: '80%'
                     }}
                 />
                 <TextField
-                    hintText="6-20位字母、数字、汉字"
-                    floatingLabelText="请输入密码"
+                    hintText="请输入密码"
                     style={{
                         width: '80%'
                     }}
@@ -45,6 +43,7 @@ export default class LoginPage extends Component {
                 <RaisedButton
                     label="注册"
                     primary={true}
+                    onTouchTap={() => browserHistory.push('/test')}
                     style={
                         {margin: '0.5rem 0', width: '90%'}
                     }

@@ -1,10 +1,10 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 
+export default class TestTextPage extends Component {
 
-export default class TestTextPage extends Component{
-    render(){
-        return(
-            <div>
+    render() {
+        return (
+            <div className="transition-item simple_exit">
                 <div>start</div>
                 <div>哈哈哈</div>
                 <div>哈哈哈</div>
