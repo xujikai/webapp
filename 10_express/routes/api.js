@@ -27,4 +27,5 @@ router.post('/hotVideo/list', function(req, res, next) {
 // userId:379
 // content:My classmates have been to
 
+
 module.exports = router;
