@@ -10,3 +10,10 @@ export const getHotVideo = (status,json,error) => ({
     json,
     error
 });
+
+export const getHotComment = (status,json,error) => ({
+    type: types.REQUEST_HOT_COMMENT,
+    status,
+    json,
+    error
+});

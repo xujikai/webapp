@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import * as ApiCode from '../api/ApiCode';
 
 import HotVideoItem from './HotVideoItem';
 
@@ -16,7 +17,7 @@ export default class HotVideoPage extends Component{
 
         if(isFetching){
             return <div>加载中</div>;
-        }else if(result !== 200){
+        }else if(result !== ApiCode.CODE_SUCCESS){
             return <div>{msg}</div>;
         }else {
             return(
