@@ -4,10 +4,12 @@
 import * as types from '../constants/ActionTypes';
 
 const initStatus = {
-    data: [],
-    result: 0,
-    msg: '',
-    isFetching: false,
+    data: [],// 结果数据
+    result: 0,// 结果码
+    msg: '',// 错误信息
+    isFetching: false,// 是否正在请求
+    lastUpdate: 0,// 上次数据请求时间
+    isForceUpdate: false// 是否强制刷新
 };
 
 const hotVideo = (state = initStatus,action) => {
@@ -16,7 +18,8 @@ const hotVideo = (state = initStatus,action) => {
             if(action.status === types.STATUS_LOADING){
                 return {
                     ...state,
-                    isFetching: true
+                    isFetching: true,
+                    isForceUpdate: false
                 };
             }else if(action.status === types.STATUS_SUCCESS){
                 return {
@@ -24,6 +27,7 @@ const hotVideo = (state = initStatus,action) => {
                     isFetching: false,
                     result: action.json.result,
                     data: action.json.data,
+                    lastUpdate: action.lastUpdate
                 };
             }else if(action.status === types.STATUS_FAILED){
                 return {
@@ -38,6 +42,11 @@ const hotVideo = (state = initStatus,action) => {
                     isFetching: false,
                     result: action.error.result,
                     msg: action.error.msg
+                }
+            }else if(action.status === types.STATUS_UPDATE){
+                return {
+                    ...state,
+                    isForceUpdate: true
                 }
             }else {
                 return state;

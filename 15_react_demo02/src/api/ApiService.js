@@ -18,6 +18,8 @@ import * as types from '../constants/ActionTypes';
 import * as actions from '../actions';
 import * as ApiUrl from './ApiUrl';
 import * as ApiCode from './ApiCode';
+import * as ApiUtils from './ApiUtils';
+import reducer from '../reducers';
 
 /**
  * 获取error时返回对象
@@ -30,12 +32,27 @@ const getError = (result,msg) => ({
 });
 
 /**
+ * 是否应该请求数据
+ * @param state    当前应用状态数据      eg: {hotVideo:Object,hotComment:Object}
+ * @param key      获取应用某些数据的key eg: hotVideo
+ */
+const isShouldUpdate = (state,key) => {
+  const apiBean = state[key];
+  return !apiBean.isFetching //不存在正在请求数据
+      || apiBean.isForceUpdate //手动强制刷新
+      || !apiBean.data  //数据为空
+      || Date.now() - apiBean.lastUpdate > 10 * 60 * 1000; //上次更新时间大于10分钟
+};
+
+/**
  * 请求热门视频列表
  */
-export const getHotVideo = () => (dispatch) => {
+export const getHotVideo = () => (dispatch,getState) => {
+    if(!isShouldUpdate(getState(),'hotVideo')) return;
+
     dispatch(actions.getHotVideo(types.STATUS_LOADING));
     const params = {page: 3, pagesize: 5};
-    return fetch(ApiUrl.HotVideo, ApiUrl.options(params))
+    return fetch(ApiUrl.HotVideo, ApiUtils.options(params))
         .then(response => {
             if (response.ok) {
                 response.json().then(json => {
@@ -51,11 +68,19 @@ export const getHotVideo = () => (dispatch) => {
 };
 
 /**
+ * 强制刷新热门视频列表
+ */
+export const updateHotVideo = () => (dispatch) => {
+    dispatch(actions.getHotVideo(types.STATUS_UPDATE));
+    dispatch(getHotVideo());
+};
+
+/**
  * 请求热门视频评论列表
  */
 export const getHotComment = () => (dispatch) => {
     dispatch(actions.getHotComment(types.STATUS_LOADING));
-    return fetch(ApiUrl.HotComment, ApiUrl.options(null))
+    return fetch(ApiUrl.HotComment, ApiUtils.options(null))
         .then(response => {
             if(response.ok){
                 response.json().then(json => {
