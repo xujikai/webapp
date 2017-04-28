@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
 import * as ApiCode from '../api/ApiCode';
+import * as RouteUrl from '../constants/RouteUrl';
 
 import HotVideoItem from './HotVideoItem';
 
@@ -22,6 +24,8 @@ export default class HotVideoPage extends Component{
         }else {
             return(
                 <div>
+                    <Link to={RouteUrl.Test}>Test页面</Link>
+                    <Link to={RouteUrl.Main}>Main页面</Link>
                     {data.map((item,index) => {
                         return <HotVideoItem key={index} item={item} pos={index}/>
                     })}

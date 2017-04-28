@@ -5,6 +5,6 @@
 export const BaseRoute = '/xxx';
 export const Index = `${BaseRoute}/`;
 export const Main = `${BaseRoute}/main`;
-export const HotVideo = '/hotVideo';
-export const HotVideoDetail = '/hotVideoDetail';
+export const HotVideo = `${BaseRoute}/hotVideo`;
+export const HotVideoDetail = `${BaseRoute}/hotVideoDetail`;
 export const Test = `${BaseRoute}/test`;

@@ -28,7 +28,7 @@ render(
     <Provider store={store}>
         <Router>
             <div>
-                <Route path={RouteUrl.Index} component={HotVideoContainer}/>
+                <Route exact path={RouteUrl.Index} component={HotVideoContainer}/>
                 <Route path={RouteUrl.Main} component={MainPage}/>
                 <Route path={RouteUrl.HotVideo} component={HotVideoContainer}/>
                 <Route path={RouteUrl.HotVideoDetail} component={HotVideoDetailContainer}/>
