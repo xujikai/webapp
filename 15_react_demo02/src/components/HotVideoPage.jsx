@@ -23,7 +23,7 @@ export default class HotVideoPage extends Component{
             return(
                 <div>
                     {data.map((item,index) => {
-                        return <HotVideoItem key={index} item={item}/>
+                        return <HotVideoItem key={index} item={item} pos={index}/>
                     })}
                 </div>
             );

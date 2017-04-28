@@ -17,7 +17,7 @@ module.exports = {
     output: {
         publicPath:'http://192.168.0.92:8080/xxx',
         path: path.resolve(__dirname, 'build'),
-        filename: './dist/[name].js'
+        filename: 'dist/[name].js'
         //.[chunkhash]
     },
     module: {
@@ -106,7 +106,7 @@ module.exports = {
     },
     plugins: [
         //将样式文件打包至此文件中
-        new ExtractTextPlugin('./style/styles.css'),
+        new ExtractTextPlugin('style/styles.css'),
         //如果某些包没有修改过，就不会重新打这一部分
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

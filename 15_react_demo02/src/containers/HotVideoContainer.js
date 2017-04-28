@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 
 import HotVideoPage from '../components/HotVideoPage';
-import {getHotVideo} from '../api/ApiService';
+import {getHotVideo,updateHotVideo} from '../api/ApiService';
 
 const mapStateToProps = (state) => {
     return {
@@ -15,6 +15,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     getHotVideoList: () => {
         dispatch(getHotVideo());
+    },
+    forceUpdateHotVideo: () => {
+        dispatch(updateHotVideo())
     }
 });
 

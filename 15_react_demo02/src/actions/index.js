@@ -8,12 +8,14 @@ export const getHotVideo = (status,json,error) => ({
     type: types.REQUEST_HOT_VIDEO,
     status,
     json,
-    error
+    error,
+    lastUpdate:Date.now()
 });
 
 export const getHotComment = (status,json,error) => ({
     type: types.REQUEST_HOT_COMMENT,
     status,
     json,
-    error
+    error,
+    lastUpdate:Date.now()
 });
