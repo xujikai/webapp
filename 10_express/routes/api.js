@@ -1,6 +1,7 @@
 /**
  * Created by xxx on 2017/4/25.
  */
+const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 

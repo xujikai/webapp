@@ -8,8 +8,25 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const api = require('./routes/api');
+const test = require('./routes/test');
+
+/**
+ * /save/:name        req.params.name
+ * /save?name=xxx     req.query.name
+ * post请求           req.body.name
+ */
 
 const app = express();
+const mongoose = require('mongoose');
+
+// 连接mongodb数据库
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://192.168.0.92:27001/mydb');
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log('数据库连接成功');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,17 +43,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/api',api);
-app.get('/test/get',function (req,res,next) {
-    // res.send('test/get');
-    console.log('test/get');
-    next();
-},function (req,res) {
-    res.send('test/get/2');
-    console.log('test/get/2');
-});
-app.post('/test/post',function (req,res) {
-    res.send('test/post');
-});
+app.use('/test',test);
+// app.get('/test/get',function (req,res,next) {
+//     // res.send('test/get');
+//     console.log('test/get');
+//     next();
+// },function (req,res) {
+//     res.send('test/get/2');
+//     console.log('test/get/2');
+// });
+// app.post('/test/post',function (req,res) {
+//     res.send('test/post');
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
