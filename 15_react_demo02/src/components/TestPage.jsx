@@ -8,7 +8,6 @@ export default class TestPage extends Component{
         return(
             <div>
                 TestPage
-                <button onClick={() => this.goMainPage()}>跳转</button>
                 <br/>
                 <ButtonToolbar>
                     {/* Standard button */}
@@ -34,10 +33,6 @@ export default class TestPage extends Component{
                 </ButtonToolbar>
             </div>
         );
-    }
-
-    goMainPage(){
-        this.props.history.push('/main');
     }
 
 }

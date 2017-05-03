@@ -33,6 +33,13 @@ router.post('/hotVideo/commentList', function (req, res, next) {
     res.send(commentEntity);
 });
 
+router.post('/hotVideo/add', function(req, res, next) {
+    console.log(req.body.label);
+    console.log(req.body.videoUrl);
+    console.log(req.body.videoLength);
+    res.redirect('list');
+});
+
 // 添加评论
 // http://lvxing.bjfantu.cn/api/hotvideo/addCmmt
 // videoId:211

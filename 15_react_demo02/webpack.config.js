@@ -15,7 +15,6 @@ module.exports = {
         // vendor: 'moment'
     },
     output: {
-        publicPath:'http://192.168.0.92:8080/xxx',
         path: path.resolve(__dirname, 'build'),
         filename: './dist/[name].js'
         //.[chunkhash]

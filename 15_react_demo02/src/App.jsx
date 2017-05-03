@@ -13,6 +13,7 @@ import RootPage from './components/RootPage';
 import MainPage from './components/MainPage';
 import HotVideoContainer from './containers/HotVideoContainer';
 import HotVideoDetailContainer from './containers/HotVideoDetailContainer';
+import HotVideoAddPage from './components/HotVideoAddPage';
 import TestPage from './components/TestPage';
 
 import './styles/HotVideoItem.scss';
@@ -32,6 +33,7 @@ render(
                 <Route path={RouteUrl.Main} component={MainPage}/>
                 <Route path={RouteUrl.HotVideo} component={HotVideoContainer}/>
                 <Route path={RouteUrl.HotVideoDetail} component={HotVideoDetailContainer}/>
+                <Route path={RouteUrl.HotVideoAdd} component={HotVideoAddPage}/>
                 <Route path={RouteUrl.Test} component={TestPage}/>
             </div>
         </Router>

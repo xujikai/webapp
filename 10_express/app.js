@@ -28,9 +28,15 @@ db.once('open', function() {
     console.log('数据库连接成功');
 });
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// jade渲染
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
+
+// html渲染
+const ejs = require('ejs');
+app.set('views',path.join(__dirname,'views'));
+app.engine('.html',ejs.__express);
+app.set('view engine','html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,6 +50,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api',api);
 app.use('/test',test);
+// 匹配客户端页面url路径
+app.use('/xxx/*', index);
 // app.get('/test/get',function (req,res,next) {
 //     // res.send('test/get');
 //     console.log('test/get');
