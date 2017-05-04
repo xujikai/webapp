@@ -21,7 +21,7 @@ const mongoose = require('mongoose');
 
 // 连接mongodb数据库
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://192.168.0.92:27001/mydb');
+mongoose.connect('mongodb://192.168.0.92:27017/mydb');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

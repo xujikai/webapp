@@ -19,9 +19,7 @@ const mapStateToProps = (state,ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getHotCommentList: () => {
-            dispatch(getHotComment());
-        }
+        getHotCommentList() { dispatch(getHotComment()); }
     }
 };
 

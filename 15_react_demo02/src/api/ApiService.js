@@ -38,8 +38,9 @@ const getError = (result,msg) => ({
  */
 const isShouldUpdate = (state,key) => {
   const apiBean = state[key];
-  return !apiBean.isFetching //不存在正在请求数据
-      || apiBean.isForceUpdate //手动强制刷新
+  if(apiBean.isFetching) return false;
+
+  return apiBean.isForceUpdate //手动强制刷新
       || !apiBean.data  //数据为空
       || Date.now() - apiBean.lastUpdate > 10 * 60 * 1000; //上次更新时间大于10分钟
 };
