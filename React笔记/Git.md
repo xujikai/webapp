@@ -67,3 +67,11 @@ git remote命令就用于管理主机名。
 
     git push --all origin
 
+## 发布项目
+
+	git status						查看当前git状态
+	git add -A 						将未加入track的文件加进来
+	git commit -m "提交文字说明"	提交到本地
+	git push						push到github
+
+	git subtree push --prefix=build,images origin gh-pages
