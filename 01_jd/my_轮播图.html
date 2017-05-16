@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body,ul,ol,li,img{margin:0;padding:0;list-style:none;}
+        .all{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .screen{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .screen ul{
+            width: 600%;
+            height: 100%;
+            position: absolute;
+        }
+        .screen ul li{
+            float: left;
+        }
+
+        ol{
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+            z-index: 1;
+        }
+        ol li{
+            float: left;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .current{
+            background: darkorange;
+            color: white;
+        }
+
+        .arr{
+            width: 500px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .arr span{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .arr .left{
+            left: 10px;
+            top: 40%;
+        }
+        .arr .right{
+            right: 10px;
+            top: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="all" id="all">
+        <div class="screen" id="screen">
+            <ul>
+                <li><img src="../images/1.jpg" alt=""></li>
+                <li><img src="../images/2.jpg" alt=""></li>
+                <li><img src="../images/3.jpg" alt=""></li>
+                <li><img src="../images/4.jpg" alt=""></li>
+                <li><img src="../images/5.jpg" alt=""></li>
+            </ul>
+            <ol>
+                <!--<li class="current">1</li>-->
+            </ol>
+            <div class="arr">
+                <span class="left"><</span>
+                <span class="right">></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var allNode = document.getElementById('all');
+            var screenNode = allNode.children[0];
+            var imageWidth = screenNode.offsetWidth;
+            var ulNode = screenNode.children[0];
+            var olNode = screenNode.children[1];
+            var arrNode = screenNode.children[2];
+
+            var ulNewLi = ulNode.children[0].cloneNode(true);
+            ulNode.appendChild(ulNewLi);
+            for(var i=0;i<ulNode.children.length-1;i++){
+                var olNewLi = document.createElement('li');
+                olNewLi.innerText = i+1;
+                olNode.appendChild(olNewLi);
+            }
+
+            var olNodeLiArr = olNode.children;
+            olNodeLiArr[0].className = 'current';
+
+            var timer = setInterval(toNext,2000);
+            var indexUl = 0;
+            var indexOl = 0;
+
+            for(i=0;i<olNodeLiArr.length;i++){
+                olNodeLiArr[i].index = i;
+                olNodeLiArr[i].onmouseover = function () {
+                    for(var j=0;j<olNodeLiArr.length;j++){
+                        olNodeLiArr[j].className = '';
+                    }
+                    olNodeLiArr[this.index].className = 'current';
+                    animate(ulNode,-this.index * imageWidth);
+                    indexUl = this.index;
+                    indexOl = this.index;
+                };
+            }
+
+            /**
+             * 前一页
+             */
+            function toPrevious() {
+                indexUl--;
+                if(indexUl < 0){
+                    ulNode.style.left = -imageWidth*(olNodeLiArr.length) + 'px';
+                    indexUl = olNodeLiArr.length - 1;
+                }
+                animate(ulNode,-indexUl * imageWidth);
+
+                indexOl--;
+                for(var i=0;i<olNodeLiArr.length;i++){
+                    olNodeLiArr[i].className = '';
+                }
+                if(indexOl < 0){
+                    indexOl = olNodeLiArr.length - 1;
+                }
+                olNodeLiArr[indexOl].className = 'current';
+            }
+
+            /**
+             * 后一页
+             */
+            function toNext() {
+                indexUl++;
+                if(indexUl > olNodeLiArr.length){
+                    ulNode.style.left = 0;
+                    indexUl = 1;
+                }
+                animate(ulNode,-indexUl * imageWidth);
+
+                indexOl++;
+                for(var i=0;i<olNodeLiArr.length;i++){
+                    olNodeLiArr[i].className = '';
+                }
+                if(indexOl >= olNodeLiArr.length){
+                    indexOl = 0;
+                }
+                olNodeLiArr[indexOl].className = 'current';
+            }
+
+            onblur = function () {
+                clearInterval(timer);
+            };
+            onfocus = function () {
+                timer = setInterval(toNext,2000);
+            };
+            allNode.onmouseover = function () {
+                clearInterval(timer);
+            };
+            allNode.onmouseout = function () {
+                timer = setInterval(toNext,2000);
+            };
+
+            arrNode.children[0].onclick = function () {
+                toPrevious();
+            };
+            arrNode.children[1].onclick = function () {
+                toNext();
+            };
+
+            function animate(ele,target) {
+                if(ele.timer) clearInterval(ele.timer);
+                var speed = target > ele.offsetLeft ? 10 : -10;
+                ele.timer = setInterval(function () {
+                    var value = target - ele.offsetLeft;
+                    console.log(value);
+                    ele.style.left = ele.offsetLeft + speed + 'px';
+                    if(Math.abs(value) < 10){
+                        ele.style.left = target + 'px';
+                        clearInterval(ele.timer);
+                    }
+                },10);
+            }
+        };
+
+    </script>
+</body>
+</html>
